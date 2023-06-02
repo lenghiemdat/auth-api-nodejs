@@ -8,10 +8,10 @@ function generateToken(user) {
   if (!user) return null;
 
   var u = {
-    userId: user.userId,
+    id: user.id,
+    email: user.email,
     name: user.name,
-    username: user.username,
-    isAdmin: user.isAdmin
+    admin: user.admin
   };
 
   return jwt.sign(u, process.env.JWT_SECRET, {
@@ -24,10 +24,10 @@ function getCleanUser(user) {
   if (!user) return null;
 
   return {
-    userId: user.userId,
+    id: user.id,
+    email: user.email,
     name: user.name,
-    username: user.username,
-    isAdmin: user.isAdmin
+    admin: user.admin
   };
 }
 
